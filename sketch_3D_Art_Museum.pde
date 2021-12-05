@@ -12,7 +12,7 @@ void setup(){
     size(960,540);
     frameRate(60);
 
-    //Control Variables
+    //Control Variables //TODO: SET UP ALL CONTROLS
     cp5 = new ControlP5(this);
     paintingCategories = cp5.addCheckBox("checkBox")
     .setPosition(250, 20)
@@ -46,6 +46,11 @@ void draw(){
     background(0);
     
     checkToggles(); //checks which variables are toggles true
+    if(visualize){
+       //TODO: create graph based on toggles
+       
+       //TODO: execute algorithm based on toggles
+    }
 
 }
 //Program Start: Will check for toggles first, and then set the variables for which 
