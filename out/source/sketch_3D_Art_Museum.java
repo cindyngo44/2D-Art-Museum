@@ -17,7 +17,8 @@ public class sketch_3D_Art_Museum extends PApplet {
 
 public void setup(){
     
-    background(0);
+    background(0xffFFFFFF);
+    frameRate(60);
 }
 public void draw(){
 
