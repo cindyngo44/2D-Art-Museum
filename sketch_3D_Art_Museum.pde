@@ -1,5 +1,6 @@
 import controlP5.*;
 
+//FUNCTIONALITIES:
 //Look at paintings:
 // All paintings, divided into culture, divided into time period
 //Compare by:
