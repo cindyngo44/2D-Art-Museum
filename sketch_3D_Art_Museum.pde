@@ -74,8 +74,10 @@ void draw(){
     
     //PROGRAM LOOP
     checkToggles(); //checks which variables are toggles true
+    
+    //TODO: create graph based on toggles
     if(visualize){
-       //TODO: create graph based on toggles
+      
        
        //TODO: execute algorithm based on toggles
     }
