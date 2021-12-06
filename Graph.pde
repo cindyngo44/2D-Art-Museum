@@ -2,9 +2,11 @@ class Vertex{
   //TODO (Cindy): Create the Vertex/Node class of the different painting attributes
   int vertex;
   String paintingName;
-  String artist;
-  String colors;
+  String artistName;
+  String[] colors;
   String location;
+  String paintingTimePeriod;
+  int year;
 }
 class Graph{
   //TODO: create boolean variables to know which type of graph to make
