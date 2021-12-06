@@ -1,5 +1,21 @@
 import controlP5.*;
-//Jacob's First Push <3
+
+//Look at paintings:
+// All paintings, divided into culture, divided into time period
+//Compare by:
+// Color, words in title, location, year
+//Algorithms:
+// BFS (visualization), Djikstra's (choose 2 vertices)
+
+//Jacob: Dummy object with all information
+//Color has hexcode for color & spectrum, hue name, percent
+//Only an edge if within a certain range
+//Take hex code, split into RGB, compare equally
+//OR compare by hue name and percent used
+//Start with: All paintings, compared by color (closeness, weighted), displayed in a graph display (BFS)
+
+//Work on actual display, how to navigate
+//Displaying shortest path
 
 ControlP5 cp5;
 RadioButton paintingCategories;
@@ -27,7 +43,7 @@ String algorithmsTitle = "Algorithms: ";
 String credits = "COP3520: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 
 void setup(){
-    pixelDensity(2);
+    //pixelDensity(2);
     size(1200,800);
     frameRate(60);
     
