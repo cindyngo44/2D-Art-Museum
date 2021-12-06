@@ -2,6 +2,7 @@ class Vertex{
   //TODO (Cindy): Create the Vertex/Node class of the different painting attributes
   int vertex;
   String paintingName;
+  String artist;
   String colors;
   String location;
 }
@@ -12,7 +13,8 @@ class Graph{
   boolean timePeriod;
   boolean allPaintings;
   boolean colors;
-  boolean keyWords;
+  boolean titles;
+  boolean timeLine;
   boolean locations;
   
   //Components for adjList graph
@@ -22,13 +24,13 @@ class Graph{
   //TODO: Constructur, taking in the different booleans 
   //Build off of what type of relationship
   Graph(boolean culture, boolean timePeriod, boolean allPaintings,
-          boolean colors, boolean keyWords, boolean locations){
+          boolean colors, boolean titles, boolean timeLine){
     this.culture = culture;
     this.timePeriod = timePeriod;
     this.allPaintings = allPaintings;
     this.colors = colors;
-    this.keyWords = keyWords;
-    this.locations = locations;
+    this.titles = titles;
+    this.timeLine = timeLine;
   }
   
   void addEdge(){

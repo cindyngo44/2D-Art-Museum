@@ -1,5 +1,4 @@
 import controlP5.*;
-//Jacob's First Push <3
 
 ControlP5 cp5;
 RadioButton paintingCategories;
@@ -12,11 +11,10 @@ boolean culture;
 boolean timePeriod;
 boolean allPaintings;
 boolean colors;
-boolean tagsKeyWords;
-boolean locations;
+boolean titles;
+boolean timeLine;
 boolean bfs;
-boolean prims;
-boolean biconnectivity;
+boolean dijkstra;
 
 //TEXT VARIABLES
 String title = "Graph Art Museum";
@@ -46,17 +44,16 @@ void setup(){
     .setPosition(930, 350)
     .setSize(25, 25)
     .addItem("Colors", 0)//stroke
-    .addItem("Tags/Keywords", 0) //color
-    .addItem("Locations", 0)//blend
+    .addItem("Titles", 0) //color
+    .addItem("Timeline", 0)//blend
     .setItemsPerRow(1)
     .setSpacingRow(10);
     
      algorithms = cp5.addRadioButton("checkBox2")
     .setPosition(930, 500)
     .setSize(25, 25)
-    .addItem("BFS", 0)//stroke
-    .addItem("Prim's Algorithm", 0) //color
-    .addItem("Biconnectivity", 0)//blend
+    .addItem("BFS", 0)
+    .addItem("Dijkstra Algorithm", 0)
     .setItemsPerRow(1)
     .setSpacingRow(10);
     
@@ -81,6 +78,10 @@ void draw(){
       
        
        //TODO: execute algorithm based on toggles
+       if(bfs){
+       }
+       else if(dijkstra){
+       }
     }
     
     //UI TEXT
@@ -115,10 +116,9 @@ void checkToggles(){
     allPaintings  = paintingCategories.getState(2);
     
     colors = relationships.getState(0);
-    tagsKeyWords = relationships.getState(1);
-    locations = relationships.getState(2);
+    titles = relationships.getState(1);
+    timeLine = relationships.getState(2);
     
     bfs = algorithms.getState(0);
-    prims = algorithms.getState(1);
-    biconnectivity = algorithms.getState(2);
+    dijkstra = algorithms.getState(2);
 }
