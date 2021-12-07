@@ -1,3 +1,4 @@
+#compiled code in pycharm where requests and pandas are allowed
 import requests
 import pandas as pd
 import csv
