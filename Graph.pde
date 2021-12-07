@@ -38,7 +38,11 @@ class Graph{
   
   //Components for adjList graph
   int numVertices;
+<<<<<<< Updated upstream
   ArrayList<ArrayList<Vertex>> adjList = new ArrayList<Vertex>();
+=======
+  HashMap<Integer,ArrayList<Vertex>> adjList = new HashMap<Integer,ArrayList<Vertex>>();
+>>>>>>> Stashed changes
 
   //when we create new vertices, we store here in no order
   ArrayList<Vertex> vertexStorage = new ArrayList<Vertex>();
@@ -55,7 +59,12 @@ class Graph{
     this.colors = colors;
     this.titles = titles;
     this.timeLine = timeLine;
+<<<<<<< Updated upstream
   }
+=======
+  } 
+  void addEdge(){
+>>>>>>> Stashed changes
   //Types of graphs we may make
 
   //Vertex: Time Period Edge: Color
@@ -86,6 +95,7 @@ class Graph{
   void addEdgeColor(){
     //given vertexStorage
     if(allPaintings){
+<<<<<<< Updated upstream
       for(int i = 0; i < numVertices; i ++){
         //calculate vertex1 and vertex2
           int color1;
@@ -93,6 +103,24 @@ class Graph{
 
           adjList.get(color1).add(color2);
           adjList.get(color2).add(color1);
+=======
+      for(int i = 0; i < numVertices; i++){
+        //iterate through vertexStorage
+        //grab vertex at indices hue name
+        //iterate thourgh num vertices and find all vertices hues that match hue name
+        //EXCLUDING THE CURRENT VERTEX
+        String hue1 = vertexStorage.get(i).hue;
+        ArrayList<Vertex> value = new ArrayList();
+        for(int j = 0; j < numVertices; j++){
+          if(j !=i){
+            String hue2 = vertexStorage.get(j).hue;
+            if(hue1.equals(hue2)){
+              value.add(vertexStorage.get(j));
+            }
+          }
+        }
+        adjList.put(i, value);
+>>>>>>> Stashed changes
       }
     }
   }

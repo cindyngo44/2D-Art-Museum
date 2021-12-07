@@ -1,4 +1,5 @@
 import controlP5.*;
+import java.util.Map;
 
 //FUNCTIONALITIES
 //Look at paintings:
@@ -17,7 +18,6 @@ import controlP5.*;
 
 //Work on actual display, how to navigate
 //Displaying shortest path
->>>>>>> origin/Jacob
 
 ControlP5 cp5;
 RadioButton paintingCategories;
@@ -100,13 +100,12 @@ void draw(){
     
     //TODO: create graph based on toggles
     if(visualize){
-      
        //set graph function
        newGraph.setGraph(culture, timePeriod, allPaintings,
           colors, titles, timeLine);
        //build graph function
        newGraph.buildGraph();
-
+       //newGraph.printAdjList();
        //TODO: execute algorithm based on toggles
        if(bfs){
        }
@@ -152,8 +151,7 @@ void checkToggles(){
     bfs = algorithms.getState(0);
     dijkstra = algorithms.getState(2);
 }
-
-Graph loadCSV(){
+void loadCSV(){
     Vertex newVertex = new Vertex();
     //Load and set vertex attributes
     newGraph.numVertices++;
