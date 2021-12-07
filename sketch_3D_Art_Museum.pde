@@ -44,9 +44,9 @@ String algorithmsTitle = "Algorithms: ";
 String credits = "COP3530: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 
 //GRAPH VARIABLES
-Graph newGraph;
+Graph newGraph = new Graph();
 BFS runBFS = new BFS();
-Dijkstra runDijkstra = new runDijkstra();
+Dijkstra runDijkstra = new Dijkstra();
 
 void setup(){
     //pixelDensity(2);
@@ -105,7 +105,7 @@ void draw(){
           colors, titles, timeLine);
        //build graph function
        newGraph.buildGraph();
-       //newGraph.printAdjList();
+       newGraph.printAdjList();
        //TODO: execute algorithm based on toggles
        if(bfs){
        }

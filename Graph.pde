@@ -1,17 +1,20 @@
 class Vertex{
   //Painting Attributes
-  int vertex;
+  String vertex;
   String paintingName;
   String artistName;
   String[] colors;
   String location;
+  String hue;
   String paintingTimePeriod;
   int year;
   PImage img;
   String imgURL;
 
+  Vertex(){
+  }
   //PSEUDOCOE: VERTEX CONSTRUCTOR
-  Vertex(int vertex, String artistName, String colors, 
+  Vertex(String vertex, String artistName, String[] colors, 
         String location, String paintingTimePeriod, int year, String imgURL){
       this.vertex = vertex;
       this.artistName = artistName;
@@ -19,10 +22,10 @@ class Vertex{
       this.location = location;
       this.paintingTimePeriod = paintingTimePeriod;
       this.year = year;
-      this.imgURL = URL;
+      this.imgURL = imgURL;
 
       //reference: https://processing.org/reference/loadImage_.html
-      this.img = loadimg(imgURL, "png";)
+      //this.img = loadimg(imgURL, "png";)
   }
 }
 class Graph{
@@ -56,7 +59,6 @@ class Graph{
     this.titles = titles;
     this.timeLine = timeLine;
   } 
-  void addEdge(){
   //Types of graphs we may make
 
   //Vertex: Time Period Edge: Color
@@ -112,7 +114,16 @@ class Graph{
   void addEdgeYear(){
   
   }
-  
+ //DEBUG
+  void printAdjList(){
+    println(adjList.size());
+    for(int i = 0; i < adjList.size(); i++){
+      println("Adjacency List of Vertex: " + i);
+      for (int j = 0; j < adjList.get(i).size(); j++) {
+         println(" -> "+adjList.get(i).get(j).hue);
+      }
+    }
+  }
   //graphDraw: draws the graph w/ vertices + edges
   void graphDraw(){
   }
