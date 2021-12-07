@@ -1,6 +1,10 @@
 import controlP5.*;
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
+=======
+import java.util.Map;
+>>>>>>> Stashed changes
 
 //Look at paintings:
 // All paintings, divided into culture, divided into time period
@@ -18,7 +22,6 @@ import controlP5.*;
 
 //Work on actual display, how to navigate
 //Displaying shortest path
->>>>>>> origin/Jacob
 
 ControlP5 cp5;
 RadioButton paintingCategories;
@@ -44,8 +47,16 @@ String relationshipsTitle = "Relationships: ";
 String algorithmsTitle = "Algorithms: ";
 String credits = "COP3520: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 
+<<<<<<< Updated upstream
+=======
+//GRAPH VARIABLES
+Graph newGraph = new Graph();
+BFS runBFS = new BFS();
+Dijkstra runDijkstra = new Dijkstra();
+
+>>>>>>> Stashed changes
 void setup(){
-    //pixelDensity(2);
+    pixelDensity(2);
     size(1200,800);
     frameRate(60);
     
@@ -95,8 +106,17 @@ void draw(){
     
     //TODO: create graph based on toggles
     if(visualize){
+<<<<<<< Updated upstream
       
        
+=======
+       //set graph function
+       newGraph.setGraph(culture, timePeriod, allPaintings,
+          colors, titles, timeLine);
+       //build graph function
+       newGraph.buildGraph();
+        newGraph.printAdjList();
+>>>>>>> Stashed changes
        //TODO: execute algorithm based on toggles
        if(bfs){
        }
@@ -142,3 +162,15 @@ void checkToggles(){
     bfs = algorithms.getState(0);
     dijkstra = algorithms.getState(2);
 }
+<<<<<<< Updated upstream
+=======
+
+void loadCSV(){
+    Vertex newVertex = new Vertex();
+    //Load and set vertex attributes
+
+    newGraph.numVertices++;
+    newGraph.vertexStorage.add(newVertex); //<>//
+
+}
+>>>>>>> Stashed changes
