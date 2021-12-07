@@ -1,6 +1,5 @@
 import controlP5.*;
 
-
 //FUNCTIONALITIES
 //Look at paintings:
 // All paintings, divided into culture, divided into time period
@@ -44,6 +43,11 @@ String relationshipsTitle = "Relationships: ";
 String algorithmsTitle = "Algorithms: ";
 String credits = "COP3520: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 
+//GRAPH VARIABLES
+Graph newGraph;
+BFS runBFS = new BFS();
+Dijkstra runDijkstra = new runDijkstra();
+
 void setup(){
     //pixelDensity(2);
     size(1200,800);
@@ -82,6 +86,7 @@ void setup(){
     .setPosition(950, 700)
     .setSize(175, 50);
     
+    loadCSV();
 }
 void draw(){
     background(0);
@@ -96,7 +101,12 @@ void draw(){
     //TODO: create graph based on toggles
     if(visualize){
       
-       
+       //set graph function
+       newGraph.setGraph(culture, timePeriod, allPaintings,
+          colors, titles, timeLine);
+       //build graph function
+       newGraph.buildGraph();
+
        //TODO: execute algorithm based on toggles
        if(bfs){
        }
@@ -141,4 +151,11 @@ void checkToggles(){
     
     bfs = algorithms.getState(0);
     dijkstra = algorithms.getState(2);
+}
+
+Graph loadCSV(){
+    Vertex newVertex = new Vertex();
+    //Load and set vertex attributes
+    newGraph.numVertices++;
+    newGraph.vertexStorage.add(newVertex);
 }
