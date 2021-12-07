@@ -1,33 +1,52 @@
-class Vertex{
-  //Painting Attributes
-  String vertex;
-  String paintingName;
-  String artistName;
-  String[] colors;
-  String location;
-  String hue;
-  String paintingTimePeriod;
-  int year;
-  PImage img;
-  String imgURL;
+class Vertex {
+    //Painting Attributes
+    String id;
+    String title;
+    String artist;
+    String culture;
+    String imgUrl;
+    String hex1;
+    String hex2;
+    String hex3;
+    String percent1;
+    String percent2;
+    String percent3;
+    String hue1;
+    String hue2;
+    String hue3;
+    String year;
+    PImage img;
 
-  Vertex(){
-  }
-  //PSEUDOCOE: VERTEX CONSTRUCTOR
-  Vertex(String vertex, String artistName, String[] colors, 
-        String location, String paintingTimePeriod, int year, String imgURL){
-      this.vertex = vertex;
-      this.artistName = artistName;
-      this.colors = colors;
-      this.location = location;
-      this.paintingTimePeriod = paintingTimePeriod;
-      this.year = year;
-      this.imgURL = imgURL;
+    Vertex(){
+    }
+    Vertex(String id, String title, String artist, String culture, String imgUrl, String hex1, String hex2, String hex3, String percent1, String percent2, String percent3,
+    String hue1, String hue2, String hue3, String year){
+        
+        this.id = id;
+        this.title= title;
+        this.artist= artist;
+        this.culture= culture;
+        this.imgUrl = imgUrl;
+        this.hex1= hex1;
+        this.hex2= hex2;
+        this.hex3=hex3;
+        this.percent1=percent1;
+        this.percent2= percent2;
+        this.percent3=percent3;
+        this.hue1= hue1;
+        this.hue2=hue2;
+        this.hue3=hue3;
+        this.year=year;    
+        //this.img = "img";
+  
+        //reference: https://processing.org/reference/loadImage_.html
+        //this.img = loadimg(imgURL, "png";)
 
-      //reference: https://processing.org/reference/loadImage_.html
-      //this.img = loadimg(imgURL, "png";)
-  }
+    }
+
 }
+
+
 class Graph{
   //TODO: create boolean variables to know which type of graph to make
   //(Painting Category + Relationships
@@ -94,12 +113,12 @@ class Graph{
         //grab vertex at indices hue name
         //iterate thourgh num vertices and find all vertices hues that match hue name
         //EXCLUDING THE CURRENT VERTEX
-        String hue1 = vertexStorage.get(i).hue;
+        String hue = vertexStorage.get(i).hue1;
         ArrayList<Vertex> value = new ArrayList();
         for(int j = 0; j < numVertices; j++){
           if(j !=i){
-            String hue2 = vertexStorage.get(j).hue;
-            if(hue1.equals(hue2)){
+            String hue2 = vertexStorage.get(j).hue1;
+            if(hue.equals(hue2)){
               value.add(vertexStorage.get(j));
             }
           }
@@ -120,7 +139,7 @@ class Graph{
     for(int i = 0; i < adjList.size(); i++){
       println("Adjacency List of Vertex: " + i);
       for (int j = 0; j < adjList.get(i).size(); j++) {
-         println(" -> "+adjList.get(i).get(j).hue);
+         println(" -> "+adjList.get(i).get(j).hue1);
       }
     }
   }

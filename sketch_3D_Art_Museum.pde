@@ -35,6 +35,7 @@ boolean timeLine;
 boolean bfs;
 boolean dijkstra;
 
+
 //TEXT VARIABLES
 String title = "Graph Art Museum";
 String description = "           Welcome to the Harvard Art Museum! Here, you can examine the archive of art pieces in a large visual representation. Observe different patterns within cultures, time periods, or the entire collection! Choose a painting category, relationship to observe, and and algorithm to compare!";
@@ -47,6 +48,10 @@ String credits = "COP3530: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 Graph newGraph = new Graph();
 BFS runBFS = new BFS();
 Dijkstra runDijkstra = new Dijkstra();
+
+//IO Variables
+BufferedReader br;
+  Table table;
 
 void setup(){
     //pixelDensity(2);
@@ -105,7 +110,7 @@ void draw(){
           colors, titles, timeLine);
        //build graph function
        newGraph.buildGraph();
-       newGraph.printAdjList();
+       //newGraph.printAdjList();
        //TODO: execute algorithm based on toggles
        if(bfs){
        }
@@ -152,8 +157,36 @@ void checkToggles(){
     dijkstra = algorithms.getState(2);
 }
 void loadCSV(){
-    Vertex newVertex = new Vertex();
-    //Load and set vertex attributes
+  
+Vertex newVertex;
+
+table = loadTable("painting.csv", "header");
+
+
+  println(table.getRowCount() + " total rows in table");
+
+  for (TableRow row : table.rows()) {
+
+
+    String id= row.getString("id");
+    String title= row.getString("title");
+    String artist = row.getString("artist");
+    String culture = row.getString("culture");
+    String imgUrl = row.getString("image");
+    String hex1 = row.getString("hex1");
+    String hex2= row.getString("hex2");
+    String hex3= row.getString("hex3");
+    String percent1= row.getString("percent1");
+    String percent2 = row.getString("percent2");
+    String percent3 = row.getString("percent3");
+    String hue1= row.getString("hue1");
+    String hue2= row.getString("hue2");
+    String hue3= row.getString("hue3");
+    String year= row.getString("year");
+
+    newVertex = new Vertex(id, title, artist, culture, imgUrl, hex1, hex2, hex3, percent1, percent2, percent3, hue1, hue2, hue3, year);
+
     newGraph.numVertices++;
     newGraph.vertexStorage.add(newVertex);
+    }   
 }
