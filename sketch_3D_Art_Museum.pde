@@ -41,7 +41,7 @@ String description = "           Welcome to the Harvard Art Museum! Here, you ca
 String paintingCategoriesTitle = "Painting Categories: ";
 String relationshipsTitle = "Relationships: ";
 String algorithmsTitle = "Algorithms: ";
-String credits = "COP3520: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
+String credits = "COP3530: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 
 //GRAPH VARIABLES
 Graph newGraph;

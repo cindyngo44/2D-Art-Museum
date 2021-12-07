@@ -1,4 +1,4 @@
-class Vertex{}
+class Vertex{
   //Painting Attributes
   int vertex;
   String paintingName;
