@@ -223,8 +223,8 @@ void loadCSV(){
   table = loadTable("painting.csv", "header");
   println(table.getRowCount() + " total rows in table");
 
-  for (TableRow row : table.rows()) {
 
+  for (TableRow row : table.rows()) {
 
     String id= row.getString("id");
     String title= row.getString("title");
@@ -244,7 +244,7 @@ void loadCSV(){
     String hue5 =row.getString("hue5");
     String year= row.getString("year");
 
-    newVertex = new Vertex(id, title, artist, culture, imgUrl, hex1, hex2, hex3, percent1, percent2, percent3, hue1, hue2, hue3, hue4, hue5, year);
+    newVertex = new Vertex(newGraph.numVertices, id, title, artist, culture, imgUrl, hex1, hex2, hex3, percent1, percent2, percent3, hue1, hue2, hue3, hue4, hue5, year);
 
     newGraph.numVertices++;
     newGraph.vertexStorage.add(newVertex);

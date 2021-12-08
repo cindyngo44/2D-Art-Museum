@@ -1,5 +1,6 @@
 class Vertex {
     //Painting Attributes
+    int vertexNum;
     String id;
     String title;
     String artist;
@@ -20,9 +21,9 @@ class Vertex {
     ArrayList<String> hues;
     PImage img;
 
-    Vertex(String id, String title, String artist, String culture, String imgUrl, String hex1, String hex2, String hex3, String percent1, String percent2, String percent3,
+    Vertex(int vertexNum, String id, String title, String artist, String culture, String imgUrl, String hex1, String hex2, String hex3, String percent1, String percent2, String percent3,
     String hue1, String hue2, String hue3, String hue4, String hue5, String year){
-        
+        this.vertexNum= vertexNum;
         this.id = id;
         this.title= title;
         this.artist= artist;
@@ -148,6 +149,7 @@ class Graph{
   ArrayList<Vertex> vertexStorage = new ArrayList<Vertex>();
   //Empty Constructor
   Graph(){
+    numVertices = 0;
   }
   
   //set the graph variables

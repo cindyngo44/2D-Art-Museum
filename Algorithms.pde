@@ -11,15 +11,11 @@ class BFS extends Algorithms{
   //Print out in console the painting title thoruhg BFS
   BFS(Graph graph){
     this.graph = graph;
-
   }
     void runAlgorithm(){
-
-/*
-      boolean visited[] = new boolean[graph.vertexStroage.size()];
-      //int a =0;
+      boolean visited[] = new boolean[graph.vertexStorage.size()];
       Queue<Integer> q = new ArrayDeque();
-      for (int i = 0; i < graph.numVertices() ; i++)
+      for (int i = 0; i < graph.numVertices ; i++)
       {
         if(visited[i] != true)
         {
@@ -33,14 +29,22 @@ class BFS extends Algorithms{
       
         while(!q.isEmpty())
         {
-          a = q.poll();
-          System.out.print(graph.vertexStorage.get(a).title  + " ");
+          i = q.poll();
+          println(graph.vertexStorage.get(i).title  + " ");
 
+           for (int num = 0 ; num< graph.adjList.get(i).size(); num++ )
+            {
+                int temp = graph.vertexStorage.get(num).vertexNum;
+                if (!visited[temp])
+                {
+                    // mark it as discovered and enqueue it
+                    visited[temp] = true;
+                    q.add(temp);
+                }
+            }
         }
-        
-*/
-      }
-      
+      } 
+    }
 }
 class DFS extends Algorithms{
     boolean[] visited;
