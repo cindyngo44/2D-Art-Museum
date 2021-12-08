@@ -5,8 +5,6 @@ abstract class Algorithms{
 
   }
 }
-//TODO: Set this.graph to graph being passed in, and create each algorithm
-//Output: Painting names in console + how long the algorithm took to run
 class BFS extends Algorithms{
   //Print out in console the painting title thoruhg BFS
   BFS(Graph graph){
@@ -52,25 +50,30 @@ class DFS extends Algorithms{
       this.graph = graph;
       visited = new boolean[graph.numVertices];
     }
-
+    //runAlgorithm runs the recursive DFS function with the same source vertex (painting[0])
     void runAlgorithm(){
       DFSRecur(0, visited);
     }
     void DFSRecur(int source, boolean[] visited){      
+      //sets the visited vertext to be true
       visited[source] = true;
+      //prints the title
       println(graph.vertexStorage.get(source).title);
 
+      //Iterates thorugh the ArrayList of edges attached to that vertex
       Iterator<Vertex> iter = graph.adjList.get(source).iterator();
       while(iter.hasNext()){
         Vertex n = iter.next();
         int index = 0;
-        //Find corresponding index to the vertex
+        //Find corresponding index in vertexStorage to the Vertex n
         for(int i = 0; i < graph.numVertices; i++){
           if(n.title == graph.vertexStorage.get(i).title){
+            //once found it breaks and sets index to be used next
             index = i;
             break;
           }
         }
+        // if n is not visited, then we can run the recursive on the next vertex
         if(!visited[index]){
           DFSRecur(index, visited);
         }

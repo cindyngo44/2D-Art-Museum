@@ -49,7 +49,7 @@ class Vertex {
         this.year=year;    
         
         //reference: https://processing.org/reference/loadImage_.html
-        //this.img = loadImage(imgURL, "png";)
+        //this.img = loadImage(imgURL, ".png";)
 
     }
 
@@ -292,7 +292,7 @@ class Graph{
   void addEdgeYear(){
   
   }
- //DEBUG
+ //DEBUG FOR RELATIONSHIP: COLOR
   void printAdjList(){
     println(adjList.size());
     for(int i = 0; i < adjList.size(); i++){
