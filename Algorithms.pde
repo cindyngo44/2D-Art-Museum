@@ -15,8 +15,8 @@ class BFS extends Algorithms{
   }
 
     void runAlgorithm(){
-      /*
-
+      
+/*
       boolean nodes[] = new boolean[adjList.size()];       //initialize boolean array for holding the data
         int a = 0;
 
@@ -39,18 +39,16 @@ class BFS extends Algorithms{
                     queue.add(a);
                 }
             }  
-        }
-        */
+        }*/
+        
 
   }
   
 }
-//Cindy: we still have yet to weighted graphs working so am not sure about DiJkstra's, we are allowed to do DFS I believe
 class DFS extends Algorithms{
     void DFS(Graph graph){
       this.graph = graph;
     }
-  }
 }
 class Dijkstra extends Algorithms{
   void dijkstra(Graph graph){

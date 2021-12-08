@@ -3,7 +3,6 @@ import java.util.Map;
 import java.util.Queue;
 import java.time.Duration;
 import java.time.Instant;
-import javafx.util.Pair;
 //FUNCTIONALITIES
 //Look at paintings:
 // All paintings, divided into culture, divided into time period
@@ -128,20 +127,16 @@ void draw(){
        //newGraph.printAdjList();
        //TODO: execute algorithm based on toggles, will run ONCE and print ONCE
        if(prevBfs){
-           float start = System.nanoTime();
+            int delta = 0;
            //algorithm runs here
-           float end = System.nanoTime();  
-           println("Elapsed Time in nano seconds: "+ (end-start));
-           
+
            //Will print only once
            prevBfs = false;
        }
        else if(prevDijkstra){
-           float start = System.nanoTime();
-           //algorithm runs here
-           float end = System.nanoTime();  
-           println("Elapsed Time in nano seconds: "+ (end-start));
-            
+            int delta = 0;
+            //algorithm runs here
+
             //Will print only once
            prevDijkstra = false;
        }

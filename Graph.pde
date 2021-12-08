@@ -84,7 +84,7 @@ class GraphWeighed{
               int rgbDifference = 0;
               for(int k = 0; k < 3; k++)
               {
-                  int channelDifference = rgbValues[k] - rbgDifference[k];
+                  int channelDifference = rgbValues[k] - rgbDifference[k];
                   channelDifference = Math.abs(channelDifference);
                   rgbDifference += channelDifference;
               }
@@ -122,8 +122,6 @@ class GraphWeighed{
 }
 
 class Graph{
-  //TODO: create boolean variables to know which type of graph to make
-  //(Painting Category + Relationships
   boolean culture;
   boolean timePeriod;
   boolean allPaintings;
