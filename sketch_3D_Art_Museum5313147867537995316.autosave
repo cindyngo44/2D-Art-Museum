@@ -1,9 +1,9 @@
 import controlP5.*;
+import java.util.Map;
+import java.util.Queue;
 import java.time.Duration;
 import java.time.Instant;
 import javafx.util.Pair;
-import java.io.*;
-import java.util.*;
 //FUNCTIONALITIES
 //Look at paintings:
 // All paintings, divided into culture, divided into time period
@@ -126,16 +126,18 @@ void draw(){
                           prevColors, prevTitles, prevTimeLine);
        //build graph function
        newGraph.buildGraph();
+       visualize = false;
        //DEBUGGER
-       //newGraph.printAdjList();
-
+       float start1 = System.nanoTime();
+       newGraph.printAdjList();
+       float end1 = System.nanoTime();  
+       println("Elapsed Time in nano seconds for graph: " + (end1-start1));
        //TODO: execute algorithm based on toggles, will run ONCE and print ONCE
        if(prevBfs){
            //Reference: Function Execution Time in Java: 
            //https://www.tutorialspoint.com/how-to-measure-execution-time-for-a-java-method
            float start = System.nanoTime();
-           runBFS = new BFS(newGraph);
-           runBFS.runAlgorithm();
+           //algorithm runs here
            float end = System.nanoTime();  
            println("Elapsed Time in nano seconds for BFS: " + (end-start));
            
@@ -146,10 +148,9 @@ void draw(){
            //Reference: Function Execution Time in Java: 
            //https://www.tutorialspoint.com/how-to-measure-execution-time-for-a-java-method
            float start = System.nanoTime();
-           runDFS = new DFS(newGraph);
-           runDFS.runAlgorithm();
+           //algorithm runs here
            float end = System.nanoTime();  
-           println("Elapsed Time in nano seconds for DFS: " + (end-start));
+           println("Elapsed Time in nano seconds for BFS: " + (end-start));
            
            //Will print only once
            prevDfs = false;
@@ -158,8 +159,7 @@ void draw(){
             //Reference: Function Execution Time in Java: 
            //https://www.tutorialspoint.com/how-to-measure-execution-time-for-a-java-method
            float start = System.nanoTime();
-           runDijkstra = new Dijkstra(newGraph);
-           //runDijkstra.runAlgorithm();
+           //algorithm runs here
            float end = System.nanoTime();  
            println("Elapsed Time in nano seconds for Dijkstra: " + (end-start));
        

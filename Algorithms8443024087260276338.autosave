@@ -1,0 +1,78 @@
+abstract class Algorithms{
+  Graph graph;
+
+  void runAlgorithm(){
+
+  }
+}
+//TODO: Set this.graph to graph being passed in, and create each algorithm
+//Output: Painting names in console + how long the algorithm took to run
+class BFS extends Algorithms{
+  //Print out in console the painting title thoruhg BFS
+  BFS(Graph graph){
+    this.graph = graph;
+
+  }
+    void runAlgorithm(){
+      boolean visited[] = new boolean[graph.vertexStorage.size()];      
+        int a = 0;
+        // create a queue for doing BFS
+        Queue<Integer> q = new ArrayDeque();
+ 
+        // mark the source vertex as discovered
+        visited[a] = true;
+ 
+        // enqueue source vertex
+        q.add(a);
+        // loop till queue is empty
+        while (!q.isEmpty())
+        {
+            // dequeue front node and print it
+            a = q.poll();
+            System.out.print(graph.vertexStorage.get(a).title + " ");
+ 
+            // do for every edge (v, u)     
+          println(vertexStorage.size());
+          for(int i = 0; i < graph.adjList.get(a).size(); i++){
+              graph.adjList.get(a).get(i).title;
+              visited
+              q.add(j);
+    
+  }
+
+            for (int u: graph.vertexStorage.get(a))
+            {
+                if (!visited[u])
+                {
+                    // mark it as discovered and enqueue it
+                    visited[u] = true;
+                    q.add(u);
+                }
+            }
+        }
+    }
+}
+class DFS extends Algorithms{
+    boolean visited[] = new boolean[graph.vertexStorage.size()];
+    DFS(Graph graph){
+      this.graph = graph;
+    }
+
+    void runAlgorithm(){
+      DFS(0, visited);
+    }
+    void DFS(int source, boolean[] visited){
+      visited[source] = true;
+      println(graph.vertexStorage.get(source).title);
+      
+    }
+}
+class Dijkstra extends Algorithms{
+  Dijkstra(Graph graph){
+    this.graph = graph;
+  }
+
+    void runAlgorithm(){
+
+  }
+}

@@ -14,11 +14,14 @@ class Vertex {
     String hue1;
     String hue2;
     String hue3;
+    String hue4;
+    String hue5;
     String year;
+    ArrayList<String> hues;
     PImage img;
 
     Vertex(String id, String title, String artist, String culture, String imgUrl, String hex1, String hex2, String hex3, String percent1, String percent2, String percent3,
-    String hue1, String hue2, String hue3, String year){
+    String hue1, String hue2, String hue3, String hue4, String hue5, String year){
         
         this.id = id;
         this.title= title;
@@ -28,23 +31,30 @@ class Vertex {
         this.hex1= hex1;
         this.hex2= hex2;
         this.hex3=hex3;
+        this.hue1= hue1;
+        this.hue2= hue2;
+        this.hue3=hue3;
+        this.hue4= hue4;
+        this.hue5=hue5;
         this.percent1=percent1;
         this.percent2= percent2;
         this.percent3=percent3;
-        this.hue1= hue1;
-        this.hue2=hue2;
-        this.hue3=hue3;
+        hues = new ArrayList<String>();
+        hues.add(hue1);
+        hues.add(hue2);
+        hues.add(hue3);
+        hues.add(hue4);
+        hues.add(hue5);
         this.year=year;    
-        //this.img = "img";
-  
+        
         //reference: https://processing.org/reference/loadImage_.html
-        //this.img = loadimg(imgURL, "png";)
+        //this.img = loadImage(imgURL, "png";)
 
     }
 
 }
 
-class GraphWeighed{
+/*class GraphWeighted{
   //IMPLEMENTED FOR WEIGHTED HEXCODE
   boolean hexCode;
 
@@ -84,7 +94,7 @@ class GraphWeighed{
               int rgbDifference = 0;
               for(int k = 0; k < 3; k++)
               {
-                  int channelDifference = rgbValues[k] - rgbDifference[k];
+                  int channelDifference = rgbValues[k] - rbgDifference[k];
                   channelDifference = Math.abs(channelDifference);
                   rgbDifference += channelDifference;
               }
@@ -119,7 +129,7 @@ class GraphWeighed{
     }
     return rgbValues;
   }
-}
+}*/
 
 class Graph{
   boolean culture;
