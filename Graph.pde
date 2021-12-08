@@ -124,6 +124,7 @@ class Graph{
         adjList.put(i, value);
       }
     }
+    //Similar to allPaintings but also accounting for culture strings matching
     else if(culture){
         for(int i = 0; i < numVertices; i++){
         String culture1 = vertexStorage.get(i).culture;
@@ -161,7 +162,6 @@ class Graph{
           String firstChar = year1.substring(0,1);
           firstChar += "00";
           min = Integer.valueOf(firstChar);
-
           max= min + 100;        
         }
          else if (year1.length() ==4)
@@ -191,7 +191,6 @@ class Graph{
             {
               break;
             }
-           
           }
         }
         adjList.put(i, value);

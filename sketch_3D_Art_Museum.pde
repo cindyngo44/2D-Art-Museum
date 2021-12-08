@@ -1,6 +1,6 @@
 import controlP5.*;
 import java.util.Map;
-
+import java.util.Queue;
 //FUNCTIONALITIES
 //Look at paintings:
 // All paintings, divided into culture, divided into time period
@@ -56,11 +56,12 @@ String credits = "COP3530: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 //GRAPH VARIABLES
 Graph newGraph = new Graph();
 BFS runBFS = new BFS();
+DFS runDFS = new DFS();
 Dijkstra runDijkstra = new Dijkstra();
 
 //IO Variables
 BufferedReader br;
-  Table table;
+Table table;
 
 void setup(){
     pixelDensity(2);
