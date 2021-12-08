@@ -35,6 +35,15 @@ boolean timeLine;
 boolean bfs;
 boolean dijkstra;
 
+boolean prevCulture;
+boolean prevTimePeriod;
+boolean prevAllPaintings;
+boolean prevColors;
+boolean prevTitles;
+boolean prevTimeLine;
+boolean prevBfs;
+boolean prevDijkstra;
+
 
 //TEXT VARIABLES
 String title = "Graph Art Museum";
@@ -54,7 +63,7 @@ BufferedReader br;
   Table table;
 
 void setup(){
-    //pixelDensity(2);
+    pixelDensity(2);
     size(1200,800);
     frameRate(60);
     
@@ -106,15 +115,17 @@ void draw(){
     //TODO: create graph based on toggles
     if(visualize){
        //set graph function
-       newGraph.setGraph(culture, timePeriod, allPaintings,
-          colors, titles, timeLine);
+       newGraph.setGraph(prevCulture, prevTimePeriod, prevAllPaintings,
+                          prevColors, prevTitles, prevTimeLine);
        //build graph function
        newGraph.buildGraph();
+       
+       //DEBUGGER
        //newGraph.printAdjList();
        //TODO: execute algorithm based on toggles
-       if(bfs){
+       if(prevBfs){
        }
-       else if(dijkstra){
+       else if(prevDijkstra){
        }
     }
     
@@ -142,6 +153,15 @@ void draw(){
 //paintings, relationships, and algorithms to use. Nothing will be visualized at first
 void visualize(){
   visualize = true;
+  
+  prevCulture = culture;
+  prevTimePeriod = timePeriod;
+  prevAllPaintings = allPaintings;
+  prevColors = colors;
+  prevTitles = titles;
+  prevTimeLine = timeLine;
+  prevBfs = bfs;
+  prevDijkstra = dijkstra;
 }
 //Check toggles for Painting Categories, Relationships, Algorithms
 void checkToggles(){ 
@@ -158,11 +178,8 @@ void checkToggles(){
 }
 void loadCSV(){
   
-Vertex newVertex;
-
-table = loadTable("painting.csv", "header");
-
-
+  Vertex newVertex;
+  table = loadTable("painting.csv", "header");
   println(table.getRowCount() + " total rows in table");
 
   for (TableRow row : table.rows()) {

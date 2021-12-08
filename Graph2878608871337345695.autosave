@@ -124,6 +124,7 @@ class Graph{
         adjList.put(i, value);
       }
     }
+    //TODO: match culture + hue
     else if(culture){
         for(int i = 0; i < numVertices; i++){
         String culture1 = vertexStorage.get(i).culture;
@@ -146,6 +147,7 @@ class Graph{
       int max = 0;
       for(int i = 0; i < numVertices; i++){
         String year1 = vertexStorage.get(i).year;
+        int year1Int = Integer.parseInt(year1);
         if (year1.length() == 1)
         {
           min = 0;
@@ -162,7 +164,8 @@ class Graph{
           firstChar += "00";
           min = Integer.valueOf(firstChar);
 
-          max= min + 100;        
+          max= min + 100;
+          
         }
          else if (year1.length() ==4)
         {
@@ -174,28 +177,22 @@ class Graph{
         }
         else
         {
-          break;
-        }    
+          continue;
+        }
+        
         ArrayList<Vertex> value = new ArrayList();
         for(int j = 0; j < numVertices; j++){
           if(j !=i){
             String year2 = vertexStorage.get(j).year;
-            if (!year2.equals("unknown"))
-            {
-              int year2Int = Integer.valueOf(year2);
-              if(year2Int < max && year2Int >= min){
-                value.add(vertexStorage.get(j));
-              }
+            int year2Int = int(year2);
+            if(year2Int < max && year2Int >= min){
+              value.add(vertexStorage.get(j));
             }
-            else
-            {
-              break;
-            }
-           
           }
         }
         adjList.put(i, value);
       }
+
     }
   }
   void addEdgeTitle(){
