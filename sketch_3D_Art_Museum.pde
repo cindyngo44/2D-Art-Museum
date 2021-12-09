@@ -26,6 +26,9 @@ ControlP5 cp5;
 RadioButton paintingCategories;
 RadioButton relationships;
 RadioButton algorithms;
+Textfield t;
+String search;
+PFont pf1;
 
 //GLOBAL VARIBALES
 boolean visualize = false; //program start/reset variable
@@ -67,11 +70,13 @@ Dijkstra runDijkstra;
 //IO Variables
 BufferedReader br;
 Table table;
+int randomChoice;
 
 void setup(){
-    pixelDensity(2);
+    //pixelDensity(2);
     size(1200,800);
     frameRate(60);
+    randomChoice = int(random(7000));
     
     //Control Variables
     cp5 = new ControlP5(this);
@@ -106,6 +111,15 @@ void setup(){
     .setLabel("Visualize")
     .setPosition(950, 700)
     .setSize(175, 50);
+    
+    pf1 = createFont("Franklin Gothic Demi", 15, true);
+    t = cp5.addTextfield("titleSearch")
+    .setPosition(950,625)
+    .setSize(200,30)
+    .setLabel("Search by title")
+    .setFont(pf1)
+    .setAutoClear(false)
+    ;
     
     loadCSV();
 }
@@ -166,6 +180,8 @@ void draw(){
             //Will print only once
            prevDijkstra = false;
        }
+       //println(search);
+       newGraph.graphDraw();
     }
     
     //UI TEXT
@@ -187,6 +203,7 @@ void draw(){
     fill(#FFFFFF);
     textSize(10);
     text(credits, 915,780);
+    
 }
 //Program Start: Will check for toggles first, and then set the variables for which 
 //paintings, relationships, and algorithms to use. Nothing will be visualized at first
@@ -202,6 +219,10 @@ void visualize(){
   prevBfs = bfs;
   prevDfs = dfs;
   prevDijkstra = dijkstra;
+  
+  search = cp5.get(Textfield.class, "titleSearch").getText();
+  
+  redraw();
 }
 //Check toggles for Painting Categories, Relationships, Algorithms
 void checkToggles(){ 
