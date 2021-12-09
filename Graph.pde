@@ -230,20 +230,25 @@ class Graph{
       }
     }
     else if(timePeriod){
+      // min and max refer to the minimum year and maximum year in a century
       int min = 0;
       int max = 0;
       for(int i = 0; i < numVertices; i++){
         String year1 = vertexStorage.get(i).year;
+        //find the length of year1
+        // if the length is 1, we know it's the 1st century (0-100)
         if (year1.length() == 1)
         {
           min = 0;
           max= 100;
         }
+        // if the length is 2, we know it's the 1st century (0-100)
         else if (year1.length() ==2)
         {
           min = 0;
           max= 100;
         }
+        // if the length is 3, we can find the century depending
         else if (year1.length() ==3)
         {
           String firstChar = year1.substring(0,1);
@@ -251,6 +256,7 @@ class Graph{
           min = Integer.valueOf(firstChar);
           max= min + 100;        
         }
+        // if the length is 4, we can find the century depending
          else if (year1.length() ==4)
         {
           String firstChar = year1.substring(0,1);
@@ -263,6 +269,7 @@ class Graph{
         {
           break;
         }    
+        //parsing through vertexStorage and seeing which paintings are in the same century
         ArrayList<Vertex> value = new ArrayList();
         for(int j = 0; j < numVertices; j++){
           if(j !=i){
@@ -280,7 +287,7 @@ class Graph{
             }
           }
         }
-        adjList.put(i, value);
+        adjList.put(i, value); //add it to adjList
       }
     }
   }

@@ -6,27 +6,30 @@ abstract class Algorithms{
   }
 }
 class BFS extends Algorithms{
-  //Print out in console the painting title thoruhg BFS
+  //Print out in console the painting title through BFS
   BFS(Graph graph){
     this.graph = graph;
   }
     void runAlgorithm(){
+      // a boolean array that notes if the node has been visited
       boolean visited[] = new boolean[graph.vertexStorage.size()];
+      // a queue data structure is used becaus eit is a BFS
       Queue<Integer> q = new ArrayDeque();
       for (int i = 0; i < graph.numVertices ; i++)
       {
-        if(visited[i] != true)
+        if(visited[i] != true) // if it has not been visited
         {
         q.add(i);
         visited[i]= true;
         }
-        else
+        else //if it has already been visited
         {
           continue;
         }
       
         while(!q.isEmpty())
         {
+          //dequeue and print title of first element in queue
           i = q.poll();
           println(graph.vertexStorage.get(i).title  + " ");
 
