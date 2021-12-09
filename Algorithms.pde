@@ -83,11 +83,3 @@ class DFS extends Algorithms {
     }
   }
 }
-class Dijkstra extends Algorithms {
-  Dijkstra(Graph graph) {
-    this.graph = graph;
-  }
-
-  void runAlgorithm() {
-  }
-}

@@ -37,7 +37,6 @@ boolean timePeriod;
 boolean allPaintings;
 boolean colors;
 boolean titles;
-boolean timeLine;
 boolean bfs;
 boolean dfs;
 boolean dijkstra;
@@ -47,10 +46,8 @@ boolean prevTimePeriod;
 boolean prevAllPaintings;
 boolean prevColors;
 boolean prevTitles;
-boolean prevTimeLine;
 boolean prevBfs;
 boolean prevDfs;
-boolean prevDijkstra;
 
 
 //TEXT VARIABLES
@@ -65,7 +62,6 @@ String credits = "COP3530: Cindy Ngo, Neha Kallamvalli, Jacob Mass";
 Graph newGraph = new Graph();
 BFS runBFS;
 DFS runDFS;
-Dijkstra runDijkstra;
 
 //IO Variables
 BufferedReader br;
@@ -92,9 +88,8 @@ void setup(){
      relationships = cp5.addRadioButton("checkBox1")
     .setPosition(930, 350)
     .setSize(25, 25)
-    .addItem("Colors", 0)//stroke
-    .addItem("Titles", 0) //color
-    .addItem("Timeline", 0)//blend
+    .addItem("Colors", 0)
+    .addItem("Titles", 0) 
     .setItemsPerRow(1)
     .setSpacingRow(10);
     
@@ -103,7 +98,6 @@ void setup(){
     .setSize(25, 25)
     .addItem("BFS", 0)
     .addItem("DFS",0)
-    .addItem("Dijkstra Algorithm", 0)
     .setItemsPerRow(1)
     .setSpacingRow(10);
     
@@ -137,7 +131,7 @@ void draw(){
     if(visualize){
        //set graph function
        newGraph.setGraph(prevCulture, prevTimePeriod, prevAllPaintings,
-                          prevColors, prevTitles, prevTimeLine);
+                          prevColors, prevTitles);
        //build graph function
        newGraph.buildGraph();
        //DEBUGGER
@@ -167,18 +161,6 @@ void draw(){
            
            //Will print only once
            prevDfs = false;
-       }
-       else if(prevDijkstra){
-            //Reference: Function Execution Time in Java: 
-           //https://www.tutorialspoint.com/how-to-measure-execution-time-for-a-java-method
-           float start = System.nanoTime();
-           runDijkstra = new Dijkstra(newGraph);
-           //runDijkstra.runAlgorithm();
-           float end = System.nanoTime();  
-           println("Elapsed Time in nano seconds for Dijkstra: " + (end-start));
-       
-            //Will print only once
-           prevDijkstra = false;
        }
        //println(search);
        newGraph.graphDraw();
@@ -215,10 +197,8 @@ void visualize(){
   prevAllPaintings = allPaintings;
   prevColors = colors;
   prevTitles = titles;
-  prevTimeLine = timeLine;
   prevBfs = bfs;
   prevDfs = dfs;
-  prevDijkstra = dijkstra;
   
   search = cp5.get(Textfield.class, "titleSearch").getText();
   
@@ -232,11 +212,9 @@ void checkToggles(){
     
     colors = relationships.getState(0);
     titles = relationships.getState(1);
-    timeLine = relationships.getState(2);
     
     bfs = algorithms.getState(0);
     dfs = algorithms.getState(1);
-    dijkstra = algorithms.getState(2);
 }
 void loadCSV(){
   

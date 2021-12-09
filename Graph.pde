@@ -139,7 +139,6 @@ class Graph {
   boolean allPaintings;
   boolean colors;
   boolean titles;
-  boolean timeLine;
   boolean locations;
 
   //Components for adjList graph
@@ -155,28 +154,13 @@ class Graph {
 
   //set the graph variables
   void setGraph(boolean culture, boolean timePeriod, boolean allPaintings, 
-    boolean colors, boolean titles, boolean timeLine) {
+    boolean colors, boolean titles) {
     this.culture = culture;
     this.timePeriod = timePeriod;
     this.allPaintings = allPaintings;
     this.colors = colors;
     this.titles = titles;
-    this.timeLine = timeLine;
   } 
-  //Types of graphs we may make
-
-  //Vertex: Time Period Edge: Color
-  //Vertex: Time Period Edge: Title
-  //Vertex: Time Period Edge: Year
-
-  //Vertex: Culture Edge: Color
-  //Vertex: Culture Edge: Title
-  //Vertex: Culture Edge: Year
-
-  //Vertex: All paintings Edge: Color
-  //Vertex: All paintings Edge: Title
-  //Vertex: All paintiings Edge: Year
-
   //buildGraph: is called after setting booleans, this function will check said
   //boolean functions and call addEdge____ for the appropriate graph construction
   void buildGraph() {
@@ -184,8 +168,6 @@ class Graph {
       addEdgeColor();
     } else if (titles) {
       addEdgeTitle();
-    } else if (timeLine) {
-      addEdgeYear();
     }
   }
 
@@ -332,8 +314,6 @@ class Graph {
         adjList.put(i, value);
       }
     }
-  }
-  void addEdgeYear() {
   }
   //DEBUG FOR RELATIONSHIP: COLOR
   void printAdjList() {
