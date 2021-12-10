@@ -30,8 +30,9 @@ class BFS extends Algorithms {
         //dequeue and print title of first element in queue
         i = q.poll();
         String currTitle = graph.vertexStorage.get(i).title;
-        //if (!currTitle.equals("unknown")) println(currTitle);
-
+        if (!currTitle.equals("unknown")){
+          println(currTitle);
+        }   
         for (int num = 0; num< graph.adjList.get(i).size(); num++ )
         {
           int temp = graph.vertexStorage.get(num).vertexNum;
@@ -61,7 +62,9 @@ class DFS extends Algorithms {
     visited[source] = true;
     //prints the title
     String currTitle = graph.vertexStorage.get(source).title;
-    if (!currTitle.equals("unknown")) println(currTitle);
+    if (!currTitle.equals("unknown")){
+      println(currTitle);
+    }
 
     //Iterates thorugh the ArrayList of edges attached to that vertex
     Iterator<Vertex> iter = graph.adjList.get(source).iterator();
