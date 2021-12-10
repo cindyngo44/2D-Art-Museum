@@ -67,6 +67,7 @@ DFS runDFS;
 BufferedReader br;
 Table table;
 int randomChoice;
+int counter;
 
 void setup(){
     //pixelDensity(2);
@@ -163,7 +164,7 @@ void draw(){
            prevDfs = false;
        }
        //println(search);
-       newGraph.graphDraw();
+       if(!search.equals("")) newGraph.graphDraw();
     }
     
     //UI TEXT
@@ -204,6 +205,14 @@ void visualize(){
   
   redraw();
 }
+
+void keyPressed() {
+  if(key == ' ')
+  {
+    counter++;
+  }
+}
+
 //Check toggles for Painting Categories, Relationships, Algorithms
 void checkToggles(){ 
     culture = paintingCategories.getState(0);

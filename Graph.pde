@@ -342,7 +342,10 @@ class Graph {
       if(!center.imgUrl.equals("unknown") && !center.imgUrl.equals(""))
       {
       PImage webImg = loadImage(center.imgUrl, "png");
-      webImg.resize(webImg.width/4, webImg.height/4);
+                while (webImg.width > 300 || webImg.height > 300)
+          {
+            webImg.resize(webImg.width/2, webImg.height/2);
+          }
 
       strokeWeight(1);
       stroke(255);
@@ -357,19 +360,28 @@ class Graph {
       int numAdjacent = adjacent.size();
       println(numAdjacent);
       //LIMIT EDGES SHOWN
-      int edgesShown = 10;
-      for (int i = 0; i < edgesShown; i++)
+      int times;
+      if(numAdjacent < 10)
+      {
+        counter = 0;
+        times = numAdjacent;
+      }
+      else
+      {
+        times = (counter+1)*10;
+      }
+      for (int i = 10*counter; i < times; i++)
       {
         Vertex adj = adjacent.get(i);
         if (!adj.imgUrl.equals("unknown") && !adj.imgUrl.equals(""))
         {
           pushMatrix();
-          float angle = (TWO_PI / float(edgesShown));
+          float angle = (TWO_PI / float(times-(counter*10)));
           line(0, 0, radius * cos(i*angle), radius * sin(i*angle));
           pushMatrix();
           translate(radius * cos(i*angle), radius * sin(i*angle));
           PImage webImg2 = loadImage(adj.imgUrl, "png");
-          while (webImg2.width > 300 || webImg2.height > 300)
+          while (webImg2.width > 200 || webImg2.height > 200)
           {
             webImg2.resize(webImg.width/2, webImg.height/2);
           }
