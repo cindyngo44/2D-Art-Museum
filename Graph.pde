@@ -50,89 +50,8 @@ class Vertex {
     hues.add(hue4);
     hues.add(hue5);
     this.year=year;    
-
-    //reference: https://processing.org/reference/loadImage_.html
-    //this.img = loadImage(imgURL, ".png";)
   }
 }
-
-/*class GraphWeighted{
- //IMPLEMENTED FOR WEIGHTED HEXCODE
- boolean hexCode;
- 
- int numVertices;
- HashMap<Integer,ArrayList<Pair<Vertex,Integer>>> adjList = new HashMap<Integer,ArrayList<Pair<Vertex,Integer>>>();
- 
- ArrayList<Vertex> vertexStorage = new ArrayList<Vertex>();
- 
- void setGraph(boolean hexCode)
- {
- this.hexCode = hexCode;
- }
- 
- void buildGraph() {
- if(hexCode)
- {
- addEdgeColorWeighted();
- }
- }
- 
- void addEdgeColorWeighted() {
- if(allPaintings)
- {
- for(int i = 0; i < numVertices; i++)
- { //for each vertex
- String hex = vertexStorage.get(i).hex1;
- //hex has the no.1 hex in the vertex
- int[] rgbValues = hexToRGB(hex);
- //RBG is an array of ints with the 3 RGB values, 0-255
- //now, compare with each other vertex:
- for(int j =0; j < numVertices; j++)
- {
- if(j!=i)//exclude self loop
- {
- String hexCompare = vertexStorage.get(i).hex1;
- int[] rgbCompare = hexToRGB(hexCompare);
- int rgbDifference = 0;
- for(int k = 0; k < 3; k++)
- {
- int channelDifference = rgbValues[k] - rbgDifference[k];
- channelDifference = Math.abs(channelDifference);
- rgbDifference += channelDifference;
- }
- ArrayList<Pair<Vertex,Integer>> edges = new ArrayList<Pair<Vertex,Integer>>();
- //SET ARBITRARY COLOR DIFFERENCE FOR AN EDGE
- int differenceLimit = 100;
- //add the color difference as a weighted edge,
- //cutting off at our arbitrary limit
- if(rgbDifference < differenceLimit)
- {
- edges.add(new Pair<Vertex,Integer>(vertexStorage.get(j),rbgDifference));
- }
- }
- }
- adjList.put(i,edges);
- }
- }
- }
- 
- int[] hexToRGB(String hex)
- {
- //Goal: take in hex string and return int[] with RGB values
- //RGBHexes has R,G,and B hexes as strings
- String[] rgbHexes = {hex.substring(1,3),hex.substring(3,5),hex.substring(5)};
- int[3] rgbValues;
- for(int i = 0; i < 3; i++)
- {
- //turn each hex into RBG value (0-255)
- String hex = rgbHexes[i];
- int value = Integer.parseInt(hex,16);
- rgbValues[i] = value;
- }
- return rgbValues;
- }
- }*/
-
 class Graph {
   boolean culture;
   boolean timePeriod;
@@ -305,7 +224,6 @@ class Graph {
               if (words[k].equals(compareWords[l]) && !words[k].equals("unknown"))
               {
                 match = true;
-                //if(words[k].equals("Fisherman")) println("Found match for Fisherman");
               }
             }
           }

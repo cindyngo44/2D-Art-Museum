@@ -4,23 +4,6 @@ import java.time.Instant;
 import javafx.util.Pair;
 import java.io.*;
 import java.util.*;
-//FUNCTIONALITIES
-//Look at paintings:
-// All paintings, divided into culture, divided into time period
-//Compare by:
-// Color, words in title, location, year
-//Algorithms:
-// BFS (visualization), Djikstra's (choose 2 vertices)
-
-//Jacob: Dummy object with all information
-//Color has hexcode for color & spectrum, hue name, percent
-//Only an edge if within a certain range
-//Take hex code, split into RGB, compare equally
-//OR compare by hue name and percent used
-//Start with: All paintings, compared by color (closeness, weighted), displayed in a graph display (BFS)
-
-//Work on actual display, how to navigate
-//Displaying shortest path
 
 ControlP5 cp5;
 RadioButton paintingCategories;
@@ -80,9 +63,9 @@ void setup(){
     paintingCategories = cp5.addRadioButton("checkBox")
     .setPosition(930, 200)
     .setSize(25, 25)
-    .addItem("Culture", 0)//stroke
-    .addItem("Time Period", 0) //color
-    .addItem("All Paintings", 0)//blend
+    .addItem("Culture", 0)
+    .addItem("Time Period", 0)
+    .addItem("All Paintings", 0)
     .setItemsPerRow(1)
     .setSpacingRow(10);
     
@@ -128,17 +111,13 @@ void draw(){
     //PROGRAM LOOP
     checkToggles(); //checks which variables are toggles true
     
-    //TODO: create graph based on toggles
     if(visualize){
        //set graph function
        newGraph.setGraph(prevCulture, prevTimePeriod, prevAllPaintings,
                           prevColors, prevTitles);
        //build graph function
        newGraph.buildGraph();
-       //DEBUGGER
-       //newGraph.printAdjList();
 
-       //TODO: execute algorithm based on toggles, will run ONCE and print ONCE
        if(prevBfs){
            //Reference: Function Execution Time in Java: 
            //https://www.tutorialspoint.com/how-to-measure-execution-time-for-a-java-method
@@ -163,7 +142,6 @@ void draw(){
            //Will print only once
            prevDfs = false;
        }
-       //println(search);
        if(!search.equals("")) newGraph.graphDraw();
     }
     
